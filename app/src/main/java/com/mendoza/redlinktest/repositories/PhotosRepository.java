@@ -20,18 +20,6 @@ public class PhotosRepository {
     {
         retrofitInstance = RetrofitRepository.getInstance();
     }
-//    public static AlbumsRepository getInstance(){
-//        if(instance == null){
-//            instance = new AlbumsRepository();
-//            instance.retrofitInstance = RetrofitRepository.getInstance();
-//        }
-////        Retrofit retrofit = new Retrofit.Builder()
-////                .baseUrl("https://jsonplaceholder.typicode.com/")
-////                .build();
-////        instance.webService = retrofit.create(AlbumsService.class);
-////
-//        return instance;
-//    }
 
     public MutableLiveData<List<AlbumPhoto>> getPhotos(){
         if(photosList==null)

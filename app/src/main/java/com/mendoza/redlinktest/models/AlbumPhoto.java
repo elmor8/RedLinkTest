@@ -49,12 +49,6 @@ public class AlbumPhoto {
 
     @Override
     public String toString() {
-        return "AlbumPhoto{" +
-                "id=" + id +
-                ", albumId=" + albumId +
-                ", title='" + title + '\'' +
-                ", url='" + url + '\'' +
-                ", thumbnailUrl='" + thumbnailUrl + '\'' +
-                '}';
+        return "AlbumPhoto '" + title + '\'';
     }
 }

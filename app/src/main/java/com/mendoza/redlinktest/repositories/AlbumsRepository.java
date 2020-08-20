@@ -11,7 +11,6 @@ import java.io.IOException;
 import java.util.List;
 
 public class AlbumsRepository {
-//    private static AlbumsRepository instance;
     private RetrofitRepository retrofitInstance;
     MutableLiveData<List<Album>> albumsList = new MutableLiveData<>();
     private MutableLiveData<Boolean> isRefreshing = new MutableLiveData<>();
@@ -20,18 +19,6 @@ public class AlbumsRepository {
     {
         retrofitInstance = RetrofitRepository.getInstance();
     }
-//    public static AlbumsRepository getInstance(){
-//        if(instance == null){
-//            instance = new AlbumsRepository();
-//            instance.retrofitInstance = RetrofitRepository.getInstance();
-//        }
-////        Retrofit retrofit = new Retrofit.Builder()
-////                .baseUrl("https://jsonplaceholder.typicode.com/")
-////                .build();
-////        instance.webService = retrofit.create(AlbumsService.class);
-////
-//        return instance;
-//    }
 
     public MutableLiveData<List<Album>> getAlbums(){
         if(albumsList==null)

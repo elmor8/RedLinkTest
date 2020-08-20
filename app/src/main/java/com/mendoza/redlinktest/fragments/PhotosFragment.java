@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import com.google.android.material.snackbar.Snackbar;
 
 import com.mendoza.redlinktest.R;
 import com.mendoza.redlinktest.adapters.PhotoItemAdapter;
@@ -27,36 +28,23 @@ public class PhotosFragment extends Fragment {
     private PhotosViewModel photosViewModel;
     private SwipeRefreshLayout swipeRefreshLayout;
 
-    public PhotosFragment()
-    {
-//        albumId = albumID;
-    }
-
-//    public static PhotosFragment newInstance(int albumID) {
-//        return new PhotosFragment(albumID);
-//    }
-
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.album_fragment, container, false);
         initViews(view);
-//        setHasOptionsMenu(true);
         return view;
     }
 
+    /**
+     * Inicializo el RecyclerView y SwipeToRefresh
+     * @param view
+     */
     private void initViews(View view){
         //Init ListView
-        mAdapter = new PhotoItemAdapter(new ArrayList<AlbumPhoto>(), ((view1, position) -> Toast.makeText(getContext(), "Item "+mAdapter.getItem(position), Toast.LENGTH_SHORT).show()));
+        mAdapter = new PhotoItemAdapter(new ArrayList<AlbumPhoto>(), ((view1, position) -> Snackbar.make(view1,"Photo "+mAdapter.getItem(position),Snackbar.LENGTH_LONG).show()));
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.list);
         recyclerView.setAdapter(mAdapter);
-//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                Toast.makeText(getContext(), "Item "+mAdapter.getItem(position), Toast.LENGTH_SHORT).show();
-//
-//            }
-//        });
 
         //Init SwipeRefreshLayout
         swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.pullToRefresh);
